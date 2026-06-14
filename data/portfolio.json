@@ -1,0 +1,249 @@
+{
+  "hero": {
+    "name": "한진호",
+    "nameEn": "Han JinHo",
+    "tagline": "성장하는 백엔드 개발자",
+    "subTagline": "Java · Spring Boot · React로 서비스를 설계하고 운영합니다",
+    "ctaPrimary": { "label": "이력서 다운로드", "href": "/file/resume.pdf" },
+    "ctaSecondary": {
+      "label": "GitHub 보기",
+      "href": "https://github.com/cominamusoop"
+    },
+    "scrollIndicator": true
+  },
+  "about": {
+    "summary": "안녕하세요, 백엔드 신입 개발자를 목표로 하는 한진호입니다.한 직장에서 10년, 그리고 점장으로서 6년. 제가 증명해 온 시간은 '꾸준함'과 '책임감' 그 자체입니다. 수많은 사람과 부딪히며 쌓아온 인간관계 능력과 업무 처리 노하우는 어떤 팀에 합류하더라도 최고의 시너지를 낼 자신이 있습니다. 늦게 시작한 만큼 성장의 밀도를 높이기 위해 AI 툴을 적극적으로 다루며 효율적으로 문제를 해결하는 능력을 키웠습니다. 준비된 소통 능력에 매일 진화하는 개발 역량을 더해, 어제보다 오늘 더 성장하는 백엔드 개발자가 되겠습니다.",
+    "keywords": ["백엔드 개발", "클라우드 인프라", "RESTful API", "협업 중심"],
+    "profileImage": "/images/profile.jpeg",
+    "availableForWork": true,
+    "availableLabel": "현재 취업 준비 중"
+  },
+  "techStack": {
+    "categories": [
+      {
+        "name": "Backend",
+        "items": [
+          {
+            "name": "Java",
+            "level": 4,
+            "note": "주력 언어, OOP 기반 설계 경험"
+          },
+          {
+            "name": "Spring Boot",
+            "level": 4,
+            "note": "REST API · JWT 인증 구현"
+          },
+          { "name": "Spring Security", "level": 3, "note": "" }
+        ]
+      },
+      {
+        "name": "Database",
+        "items": [
+          {
+            "name": "MySQL",
+            "level": 4,
+            "note": "Docker 컨테이너 및 AWS RDS 운용"
+          },
+          {
+            "name": "Oracle",
+            "level": 3,
+            "note": "쿼리 튜닝 · 절차형 SQL 경험"
+          }
+        ]
+      },
+      {
+        "name": "Infra / DevOps",
+        "items": [
+          {
+            "name": "Docker",
+            "level": 3,
+            "note": "Compose 기반 멀티 컨테이너 구성"
+          },
+          {
+            "name": "AWS EC2",
+            "level": 3,
+            "note": "서버 배포 · Elastic IP 운용"
+          },
+          { "name": "AWS RDS", "level": 3, "note": "MySQL 관리형 DB 사용" },
+          {
+            "name": "AWS S3",
+            "level": 3,
+            "note": "파일 업로드 · 정적 자산 관리"
+          },
+          { "name": "AWS CloudFront", "level": 2, "note": "CDN 배포 경험" }
+        ]
+      },
+      {
+        "name": "Frontend",
+        "items": [
+          { "name": "React", "level": 3, "note": "Vite 기반, 백엔드 연동 중심" }
+        ]
+      }
+    ],
+    "levelGuide": {
+      "1": "입문",
+      "2": "기초 활용",
+      "3": "독립 구현 가능",
+      "4": "심화 활용",
+      "5": "전문가"
+    }
+  },
+  "projects": [
+    {
+      "id": "project-01",
+      "title": "EatStatGram",
+      "subtitle": "햄버거비교 및 후기공유 플랫폼",
+      "period": "2024.10 – 2024.12",
+      "teamSize": 1,
+      "role": "설계 · 개발 · 배포 전담",
+      "description": "React + Spring Boot + MySQL을 Docker Compose로 컨테이너화하고 AWS EC2에 배포한 게시판 서비스. S3 파일 첨부, JWT 인증, CloudFront CDN 연동까지 구현.",
+      "techStack": [
+        "Java",
+        "Spring Boot",
+        "React",
+        "MySQL",
+        "Docker",
+        "AWS EC2",
+        "AWS S3",
+        "CloudFront",
+        "JWT"
+      ],
+      "features": [
+        "JWT 기반 로그인 · 권한 분리",
+        "S3 파일 업로드 및 다운로드",
+        "Docker Compose 3-컨테이너 구성 (앱/DB/Nginx)",
+        "EC2 배포 + CloudFront CDN 연동",
+        "한글 인코딩(utf8mb4) 이슈 해결 경험"
+      ],
+      "architectureDiagram": "/images/projects/project01-architecture.png",
+      "github": "https://github.com/dummy-username/board-app",
+      "liveUrl": "http://13.125.92.241",
+      "demoVideo": "",
+      "thumbnail": "/images/projects/project01-thumb.png",
+      "highlights": "단순 CRUD를 넘어 인프라 전체 흐름을 직접 구성하고 트러블슈팅한 프로젝트"
+    },
+    {
+      "id": "project-02",
+      "title": "쇼핑몰 결제·주문 API",
+      "subtitle": "팀 프로젝트 · PG 연동 및 재고 동기화",
+      "period": "2024.03 – 2024.08",
+      "teamSize": 2,
+      "role": "백엔드 API · 결제 모듈 담당",
+      "description": "Spring Boot 기반 주문·결제·재고 도메인 API를 설계하고, 외부 PG 웹훅 검증 및 멱등키 처리로 결제 안정성을 확보했습니다.",
+      "techStack": ["Java", "Spring Boot", "MySQL", "Redis", "REST API"],
+      "features": [
+        "PG 웹훅 서명 검증",
+        "주문 상태 머신",
+        "재고 차감 동시성 제어"
+      ],
+      "architectureDiagram": "",
+      "github": "https://github.com/dummy-username/shop-api",
+      "liveUrl": "",
+      "demoVideo": "",
+      "thumbnail": "/images/projects/project02-thumb.png",
+      "highlights": "도메인 경계를 나누고 트랜잭션 일관성을 지키는 데 집중한 백엔드 중심 프로젝트"
+    },
+    {
+      "id": "project-03",
+      "title": "인증·권한 공통 모듈",
+      "subtitle": "개인 · JWT + RBAC 템플릿",
+      "period": "2023.11 – 2024.02",
+      "teamSize": 1,
+      "role": "설계 · 구현",
+      "description": "여러 서비스에서 재사용할 수 있도록 JWT 발급·갱신, 역할 기반 접근 제어를 Spring Security 설정으로 패키징했습니다.",
+      "techStack": ["Java", "Spring Security", "JWT", "JUnit"],
+      "features": [
+        "Refresh 토큰 로테이션",
+        "역할·권한 매핑 테이블",
+        "통합 테스트"
+      ],
+      "architectureDiagram": "",
+      "github": "https://github.com/dummy-username/auth-kit",
+      "liveUrl": "",
+      "demoVideo": "",
+      "thumbnail": "",
+      "highlights": "보일러플레이트를 줄이고 팀 온보딩 시간을 줄이는 것이 목표였습니다."
+    },
+    {
+      "id": "project-04",
+      "title": "실시간 채팅 PoC",
+      "subtitle": "3인 팀 · WebSocket + STOMP",
+      "period": "2024.01 – 2024.03",
+      "teamSize": 3,
+      "role": "메시지 브로커 · 세션 관리",
+      "description": "STOMP 기반 구독/발행과 Redis Pub/Sub을 활용해 다중 인스턴스에서도 일관된 실시간 메시지 전달을 검증했습니다.",
+      "techStack": ["Java", "Spring Boot", "WebSocket", "STOMP", "Redis"],
+      "features": ["채널별 구독", "연결 세션 추적", "간단한 부하 테스트"],
+      "architectureDiagram": "/images/projects/project04-architecture.png",
+      "github": "https://github.com/dummy-username/chat-poc",
+      "liveUrl": "",
+      "demoVideo": "",
+      "thumbnail": "/images/projects/project04-thumb.png",
+      "highlights": "실시간성과 운영 복잡도 사이의 트레이드오프를 기록한 PoC"
+    }
+  ],
+  "experience": {
+    "education": [
+      {
+        "type": "university",
+        "institution": "구덕고등학교(부산)",
+        "major": "",
+        "degree": "",
+        "period": "2004.03 – 2007.02",
+        "status": "졸업",
+        "note": ""
+      }
+    ],
+    "training": [
+      {
+        "type": "bootcamp",
+        "institution": "KH정보교육원",
+        "courseName": "프로젝트 기반 AWS 풀스택 웹 개발자 양성",
+        "period": "2025.12 – 2026.06",
+        "hours": "1062시간",
+        "skills": [
+          "JAVA",
+          "HTML",
+          "CSS",
+          "JS",
+          "REACT",
+          "ORACLE",
+          "MySQL",
+          "Docker",
+          "AWS"
+        ],
+        "status": "수료"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "운전면허증",
+        "issuer": "서울지방경찰청",
+        "date": "2012.04",
+        "status": "취득"
+      }
+    ],
+    "activities": [
+      {
+        "title": "AWS 스터디 그룹 참여",
+        "period": "2026.06 – 현재",
+        "description": "EC2 · S3 · RDS 실습 및 아키텍처 리뷰"
+      }
+    ]
+  },
+  "contact": {
+    "email": "bberry9787@gmail.com",
+    "phone": "010-9877-9787",
+    "github": "https://github.com/cominamusoop",
+    "linkedin": "",
+    "blog": "",
+    "formEnabled": true,
+    "formPlaceholder": {
+      "name": "이름",
+      "email": "이메일",
+      "message": "메시지를 입력해 주세요",
+      "submit": "보내기"
+    },
+    "responseNote": "메시지는 24시간 내로 답변드리겠습니다."
+  }
+}

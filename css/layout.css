@@ -1,0 +1,257 @@
+/**
+ * layout.css
+ * 섹션 공통 레이아웃, 고정 네비게이션, 모바일 우선 반응형 구조입니다.
+ */
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  /* 고정 헤더 + 본문 여백만큼 앵커 스크롤 시 상단 여유 */
+  scroll-padding-top: calc(
+    var(--nav-height) + var(--content-below-nav-gap, 50px)
+  );
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  padding-top: calc(var(--nav-height) + var(--content-below-nav-gap, 50px));
+  overflow-x: clip;
+}
+
+/* 키보드 탭 포커스 (input/textarea는 각 컴포넌트에서 스타일) */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-main);
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 섹션 공통: 중앙 정렬 + 최대 너비 + 좌우 패딩 (min-width 0으로 내부 그리드 가로 오버플로 방지) */
+.site-section {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding: var(--space-2xl) var(--space-md);
+  min-width: 0;
+  border: 1px solid white; /*임시작동중*/
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+#main-content {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* 고정 상단 네비게이션 */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  background-color: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+.site-header__inner {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  width: 100%;
+  padding-inline: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.site-logo {
+  font-family: "TiemposHeadline";
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+/* 데스크톱: 가로 메뉴 (모바일에서는 숨김) */
+.site-nav {
+  display: none;
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  align-items: center;
+}
+
+.site-nav__link {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  padding-block: var(--space-xs);
+  transition: color 0.2s ease;
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  color: var(--color-text);
+}
+
+/* 현재 섹션과 연동되는 활성 링크 (ui.js에서 .active 클래스 부여) */
+.site-nav__link.active {
+  color: var(--color-main);
+}
+
+/* 햄버거 버튼 (모바일에서만 표시) */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--space-xs);
+}
+
+.nav-toggle__bar {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-text);
+  border-radius: 1px;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* 열린 상태 시각 피드백 (선택) */
+.site-header.is-menu-open .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header.is-menu-open .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.is-menu-open .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 모바일 드롭다운 메뉴 패널 */
+.site-nav--mobile {
+  display: none;
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background-color: var(--color-bg-elevated);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-text) 12%, transparent);
+  padding: var(--space-md);
+}
+
+.site-header.is-menu-open .site-nav--mobile {
+  display: block;
+}
+
+.site-nav--mobile .site-nav__list {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* 스크롤 시 페이드인 대상 (ui.js에서 is-visible 추가) */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----- 반응형: 태블릿 이상에서 가로 메뉴 표시 ----- */
+@media (min-width: 48rem) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+  }
+
+  .site-nav--mobile {
+    display: none !important;
+  }
+
+  .site-header.is-menu-open .site-nav--mobile {
+    display: none !important;
+  }
+}
+
+/* ----- 푸터 ----- */
+.site-footer {
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl) var(--space-md);
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 55%,
+    var(--color-bg)
+  );
+}
+
+.site-footer__inner {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+@media (min-width: 48rem) {
+  .site-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.site-footer__copy {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.site-footer__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-main);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.site-footer__link:hover,
+.site-footer__link:focus-visible {
+  color: color-mix(in srgb, var(--color-main) 85%, white);
+}

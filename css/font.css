@@ -1,0 +1,17 @@
+/* Pretendard */
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard.otf");
+}
+
+/* GmarketSans */
+@font-face {
+  font-family: "GmarketSans";
+  src: url("/font/GmarketSans.otf");
+}
+
+/* Tiempos */
+@font-face {
+  font-family: "TiemposHeadline";
+  src: url("/font/TiemposHeadline.otf");
+}

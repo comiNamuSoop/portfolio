@@ -1,0 +1,35 @@
+/**
+ * variables.css
+ * 색상, 타이포, 간격, 반응형 기준을 CSS 변수로 관리합니다.
+ */
+
+:root {
+  /* ----- 색상 (다크 테마 기준) ----- */
+  --color-bg: #1a1614;
+  --color-bg-elevated: #26211e;
+  --color-text: #f7f4f2;
+  --color-text-muted: #b5a9a3;
+  --color-main: #e0a98f;
+  --color-accent: #f0d278;
+
+  /* ----- 폰트 (index.html의 Google Fonts와 이름 일치) ----- */
+  --font-main: "GmarketSans";
+  --font-display: "TiemposHeadline"; /* ----- 간격 스케일 ----- */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+
+  /* ----- 레이아웃 ----- */
+  --content-max-width: 72rem;
+  --nav-height: 3.5rem;
+  /* 고정 헤더 하단과 본문(섹션 제목 등) 사이 여백 */
+  --content-below-nav-gap: 50px;
+
+  /* ----- 반응형 breakpoint (JS에서도 문자열로 동일 값 사용 가능) ----- */
+  --bp-sm: 36rem; /* 576px */
+  --bp-md: 48rem; /* 768px */
+  --bp-lg: 64rem; /* 1024px */
+}

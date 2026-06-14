@@ -1,0 +1,240 @@
+/**
+ * contact.css
+ * 연락: 좌측 정보 + 우측 폼(선택), 포커스 하이라이트
+ */
+
+#contact.site-section .contact {
+  margin-inline: auto;
+}
+
+#contact.site-section .contact__head {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 48rem) {
+  #contact.site-section .contact__head {
+    text-align: left;
+  }
+}
+
+#contact.site-section .contact__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+}
+
+#contact.site-section .contact__lead {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+#contact.site-section .contact__empty {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+/* ----- 2컬럼 그리드 ----- */
+#contact.site-section .contact__grid {
+  display: grid;
+  gap: var(--space-2xl);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 48rem) {
+  #contact.site-section .contact__grid {
+    grid-template-columns: minmax(14rem, 1fr) minmax(0, 1.2fr);
+    gap: var(--space-2xl);
+  }
+}
+
+#contact.site-section .contact__subhead {
+  margin: 0 0 var(--space-md);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+#contact.site-section .contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+#contact.site-section .contact__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 90%,
+    transparent
+  );
+  color: var(--color-text);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#contact.site-section .contact__link:hover,
+#contact.site-section .contact__link:focus-visible {
+  border-color: color-mix(in srgb, var(--color-main) 50%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--color-main) 12%,
+    var(--color-bg-elevated)
+  );
+}
+
+#contact.site-section .contact__link:focus-visible {
+  outline: 2px solid var(--color-main);
+  outline-offset: 2px;
+}
+
+#contact.site-section .contact__icon {
+  flex-shrink: 0;
+  color: var(--color-main);
+}
+
+#contact.site-section .contact__link-text {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+#contact.site-section .contact__response-note {
+  margin: var(--space-md) 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+#contact.site-section .contact__response-note--aside {
+  margin-top: var(--space-lg);
+}
+
+/* ----- 폼 ----- */
+#contact.site-section .contact__form {
+  padding: var(--space-lg);
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 94%,
+    transparent
+  );
+}
+
+#contact.site-section .contact__field {
+  margin-bottom: var(--space-md);
+}
+
+#contact.site-section .contact__label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+#contact.site-section .contact__input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.9375rem;
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 2px solid color-mix(in srgb, var(--color-text) 14%, transparent);
+  border-radius: 0.5rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+#contact.site-section .contact__textarea {
+  resize: vertical;
+  min-height: 8rem;
+  line-height: 1.55;
+}
+
+#contact.site-section .contact__input::placeholder {
+  color: color-mix(in srgb, var(--color-text-muted) 75%, transparent);
+}
+
+#contact.site-section .contact__input:hover {
+  border-color: color-mix(in srgb, var(--color-text) 28%, transparent);
+}
+
+#contact.site-section .contact__input:focus {
+  outline: none;
+}
+
+#contact.site-section .contact__input:focus-visible {
+  outline: none;
+  border-color: var(--color-main);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-main) 35%, transparent);
+  background-color: color-mix(in srgb, var(--color-bg) 92%, var(--color-main));
+}
+
+#contact.site-section .contact__error {
+  min-height: 1.25rem;
+  margin: var(--space-xs) 0 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #f87171;
+}
+
+#contact.site-section .contact__submit {
+  width: 100%;
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  color: #0a0e12;
+  background-color: var(--color-main);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:
+    filter 0.15s ease,
+    transform 0.1s ease;
+}
+
+#contact.site-section .contact__submit:hover,
+#contact.site-section .contact__submit:focus-visible {
+  filter: brightness(1.06);
+}
+
+#contact.site-section .contact__submit:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+#contact.site-section .contact__submit:active {
+  transform: scale(0.99);
+}
+
+#contact.site-section .contact__success {
+  margin: var(--space-md) 0 0;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4ade80;
+  background-color: color-mix(in srgb, #22c55e 12%, var(--color-bg));
+  border: 1px solid color-mix(in srgb, #22c55e 35%, transparent);
+  border-radius: 0.5rem;
+}

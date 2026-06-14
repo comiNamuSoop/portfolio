@@ -1,0 +1,277 @@
+/**
+ * techstack.css
+ * 기술 스택: 카테고리 탭, 숙련도 progress bar, note 툴팁, 단계 범례
+ */
+
+#tech-stack.site-section .techstack {
+  margin-inline: auto;
+}
+
+#tech-stack.site-section .techstack__head {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 48rem) {
+  #tech-stack.site-section .techstack__head {
+    text-align: left;
+  }
+}
+
+#tech-stack.site-section .techstack__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+}
+
+#tech-stack.site-section .techstack__lead {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+#tech-stack.site-section .techstack__empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ----- 탭 ----- */
+#tech-stack.site-section .techstack__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 48rem) {
+  #tech-stack.site-section .techstack__tabs {
+    justify-content: flex-start;
+  }
+}
+
+#tech-stack.site-section .techstack__tab {
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-main);
+  color: var(--color-text-muted);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 88%,
+    transparent
+  );
+  border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+#tech-stack.site-section .techstack__tab:hover,
+#tech-stack.site-section .techstack__tab:focus-visible {
+  color: var(--color-text);
+  border-color: color-mix(in srgb, var(--color-main) 45%, transparent);
+}
+
+#tech-stack.site-section .techstack__tab.is-active {
+  color: #0a0e12;
+  background-color: var(--color-main);
+  border-color: transparent;
+}
+
+#tech-stack.site-section .techstack__tab:focus-visible {
+  outline: 2px solid var(--color-main);
+  outline-offset: 2px;
+}
+
+/* ----- 패널 ----- */
+#tech-stack.site-section .techstack__panels {
+  margin-bottom: var(--space-2xl);
+}
+
+#tech-stack.site-section .techstack__panel[hidden] {
+  display: none;
+}
+
+#tech-stack.site-section .ts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ----- 각 기술 행 ----- */
+#tech-stack.site-section .ts-item__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+#tech-stack.site-section .ts-item__name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+#tech-stack.site-section .ts-item--empty {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+/* note 툴팁: 빈 note일 때는 마크업 자체가 없음 */
+#tech-stack.site-section .ts-item__tip-wrap {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+#tech-stack.site-section .ts-item__tip {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-text-muted);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 90%,
+    var(--color-text)
+  );
+  border: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent);
+  cursor: help;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+#tech-stack.site-section .ts-item__tip:hover,
+#tech-stack.site-section .ts-item__tip:focus-visible {
+  color: var(--color-main);
+  border-color: color-mix(in srgb, var(--color-main) 55%, transparent);
+}
+
+#tech-stack.site-section .ts-tooltip {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.5rem);
+  min-width: min(16rem, 70vw);
+  max-width: min(22rem, 86vw);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid color-mix(in srgb, var(--color-main) 35%, transparent);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.35rem 1rem color-mix(in srgb, #000 35%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s;
+  z-index: 20;
+  pointer-events: none;
+  text-align: left;
+}
+
+#tech-stack.site-section .ts-item__tip-wrap:hover .ts-tooltip,
+#tech-stack.site-section .ts-item__tip-wrap:focus-within .ts-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ----- Progress bar ----- */
+#tech-stack.site-section .ts-bar {
+  height: 0.5rem;
+  border-radius: 999px;
+  background-color: color-mix(
+    in srgb,
+    var(--color-text) 10%,
+    var(--color-bg-elevated)
+  );
+  overflow: hidden;
+}
+
+#tech-stack.site-section .ts-bar__fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-main) 75%, var(--color-bg)) 0%,
+    var(--color-main) 55%,
+    color-mix(in srgb, var(--color-accent) 55%, var(--color-main)) 100%
+  );
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* IntersectionObserver로 .techstack--inview 가 붙은 뒤 목표 너비로 애니메이션 */
+#tech-stack.site-section .techstack--inview .ts-bar__fill {
+  width: calc((var(--lvl, 1) / 5) * 100%);
+}
+
+/* ----- 범례 ----- */
+#tech-stack.site-section .techstack__legend {
+  padding: var(--space-lg);
+  border-radius: 0.75rem;
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 92%,
+    transparent
+  );
+  border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+
+#tech-stack.site-section .techstack__legend-title {
+  margin: 0 0 var(--space-md);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+#tech-stack.site-section .techstack__guide {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+#tech-stack.site-section .techstack__guide-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: var(--space-md);
+  align-items: baseline;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+#tech-stack.site-section .techstack__guide-key {
+  font-weight: 700;
+  color: var(--color-main);
+  font-variant-numeric: tabular-nums;
+}
+
+#tech-stack.site-section .techstack__guide-text {
+  line-height: 1.5;
+}

@@ -1,0 +1,215 @@
+/**
+ * about.css
+ * 소개 섹션: 프로필 + 텍스트 2컬럼(모바일 1컬럼), 가용 상태 뱃지, 키워드 태그
+ */
+
+/* ----- 섹션 그리드: 모바일 1컬럼 → 데스크톱 2컬럼 ----- */
+#about.site-section .about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  align-items: start;
+  justify-items: center;
+  text-align: center;
+}
+
+@media (min-width: 48rem) {
+  #about.site-section .about {
+    grid-template-columns: minmax(10rem, 14rem) 1fr;
+    justify-items: stretch;
+    text-align: left;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  #about.site-section .about__media {
+    justify-self: start;
+  }
+
+  #about.site-section .about__content {
+    justify-self: stretch;
+    align-items: flex-start;
+  }
+}
+
+/* 본문 컬럼: 모바일 가운데 정렬 */
+#about.site-section .about__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  #about.site-section .about__content {
+    align-items: flex-start;
+  }
+}
+
+/* ----- 프로필 아바타 (원형) ----- */
+#about.site-section .about__media {
+  width: 100%;
+  max-width: 12.5rem;
+}
+
+#about.site-section .about__avatar {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-inline: auto;
+  background-color: var(--color-bg-elevated);
+  border: 3px solid color-mix(in srgb, var(--color-main) 35%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+
+@media (min-width: 48rem) {
+  #about.site-section .about__avatar {
+    margin-inline: 0;
+  }
+}
+
+#about.site-section .about__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 이미지 위에 겹쳐 두었다가 로드 실패 시 표시 */
+#about.site-section .about__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--color-main) 35%, var(--color-bg)) 0%,
+    color-mix(in srgb, var(--color-bg-elevated) 90%, var(--color-accent)) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+#about.site-section .about__avatar.is-img-error .about__img {
+  display: none;
+}
+
+#about.site-section .about__avatar.is-img-error .about__fallback {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 프로필 이미지 URL이 없을 때: 이니셜만 표시 */
+#about.site-section .about__avatar--placeholder .about__fallback--only {
+  position: static;
+  opacity: 1;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+/* ----- 구직 가능 뱃지 + 펄스 점 ----- */
+#about.site-section .about__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  margin-bottom: var(--space-md);
+  border-radius: 999px;
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 92%,
+    var(--color-text)
+  );
+  border: 1px solid color-mix(in srgb, #22c55e 45%, transparent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+#about.site-section .about__dot {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 0 0 color-mix(in srgb, #22c55e 55%, transparent);
+  animation: about-dot-pulse 1.8s ease-out infinite;
+}
+
+@keyframes about-dot-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, #22c55e 55%, transparent);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 0.55rem transparent;
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    transform: scale(1);
+  }
+}
+
+#about.site-section .about__badge-text {
+  line-height: 1.3;
+}
+
+/* ----- 본문 요약 ----- */
+#about.site-section .about__summary {
+  font-size: clamp(0.9375rem, 2.2vw, 1.0625rem);
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin: 0 0 var(--space-lg);
+}
+
+@media (min-width: 48rem) {
+  #about.site-section .about__summary {
+    margin-inline: 0;
+  }
+}
+
+/* ----- 키워드 태그 ----- */
+#about.site-section .about__keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 48rem) {
+  #about.site-section .about__keywords {
+    justify-content: flex-start;
+  }
+}
+
+#about.site-section .about__tag {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: color-mix(
+    in srgb,
+    var(--color-main) 18%,
+    var(--color-bg-elevated)
+  );
+  border: 1px solid color-mix(in srgb, var(--color-main) 35%, transparent);
+  border-radius: 999px;
+}

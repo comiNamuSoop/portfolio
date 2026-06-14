@@ -1,0 +1,323 @@
+/**
+ * experience.css
+ * 경력·학습: 탭, 타임라인(학력·교육), 자격증 카드, 활동 카드
+ */
+
+#experience.site-section .exp {
+  margin-inline: auto;
+}
+
+#experience.site-section .exp__head {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 48rem) {
+  #experience.site-section .exp__head {
+    text-align: left;
+  }
+}
+
+#experience.site-section .exp__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+}
+
+#experience.site-section .exp__lead {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+#experience.site-section .exp-empty {
+  margin: 0;
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+/* ----- 탭 ----- */
+#experience.site-section .exp__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 48rem) {
+  #experience.site-section .exp__tabs {
+    justify-content: flex-start;
+  }
+}
+
+#experience.site-section .exp__tab {
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-main);
+  color: var(--color-text-muted);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 88%,
+    transparent
+  );
+  border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+#experience.site-section .exp__tab:hover,
+#experience.site-section .exp__tab:focus-visible {
+  color: var(--color-text);
+  border-color: color-mix(in srgb, var(--color-main) 45%, transparent);
+}
+
+#experience.site-section .exp__tab.is-active {
+  color: #0a0e12;
+  background-color: var(--color-main);
+  border-color: transparent;
+}
+
+#experience.site-section .exp__tab:focus-visible {
+  outline: 2px solid var(--color-main);
+  outline-offset: 2px;
+}
+
+#experience.site-section .exp__panel[hidden] {
+  display: none;
+}
+
+/* ----- 타임라인 (학력 · 교육) ----- */
+#experience.site-section .exp-timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 1.85rem;
+  list-style: none;
+}
+
+#experience.site-section .exp-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-main) 55%, transparent) 0%,
+    color-mix(in srgb, var(--color-text) 18%, transparent) 100%
+  );
+}
+
+#experience.site-section .exp-timeline__row {
+  position: relative;
+  padding-bottom: var(--space-xl);
+}
+
+#experience.site-section .exp-timeline__row:last-child {
+  padding-bottom: 0;
+}
+
+#experience.site-section .exp-timeline__axis {
+  position: absolute;
+  left: -1.35rem;
+  top: 0.35rem;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#experience.site-section .exp-timeline__dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background-color: var(--color-main);
+  box-shadow: 0 0 0 4px
+    color-mix(in srgb, var(--color-bg) 88%, var(--color-main));
+}
+
+#experience.site-section .exp-timeline__card {
+  padding: var(--space-md) var(--space-lg);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 94%,
+    transparent
+  );
+  border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  border-radius: 0.65rem;
+}
+
+#experience.site-section .exp-card__title {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+#experience.site-section .exp-card__title--course {
+  margin-top: var(--space-xs);
+}
+
+#experience.site-section .exp-card__inst {
+  margin: 0 0 var(--space-xs);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+#experience.site-section .exp-card__line {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+#experience.site-section .exp-card__meta {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+#experience.site-section .exp-card__note {
+  margin: var(--space-md) 0 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+#experience.site-section .exp-card__hours {
+  margin: var(--space-sm) 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+#experience.site-section .exp-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+#experience.site-section .exp-tag {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: color-mix(in srgb, var(--color-main) 16%, var(--color-bg));
+  border: 1px solid color-mix(in srgb, var(--color-main) 35%, transparent);
+  border-radius: 0.35rem;
+}
+
+/* ----- 자격증 카드 ----- */
+#experience.site-section .exp-cert-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 36rem) {
+  #experience.site-section .exp-cert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+#experience.site-section .exp-cert-card {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-md) var(--space-lg);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 94%,
+    transparent
+  );
+  border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  border-radius: 0.65rem;
+}
+
+#experience.site-section .exp-cert-card__icon {
+  flex-shrink: 0;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+#experience.site-section .exp-cert-card__name {
+  margin: 0 0 var(--space-xs);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+#experience.site-section .exp-cert-card__issuer {
+  margin: 0 0 var(--space-xs);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+#experience.site-section .exp-cert-card__meta {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* ----- 활동 카드 ----- */
+#experience.site-section .exp-act-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+#experience.site-section .exp-act-card {
+  padding: var(--space-md) var(--space-lg);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-elevated) 94%,
+    transparent
+  );
+  border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  border-radius: 0.65rem;
+}
+
+#experience.site-section .exp-act-card__title {
+  margin: 0 0 var(--space-xs);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+#experience.site-section .exp-act-card__period {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-main);
+}
+
+#experience.site-section .exp-act-card__desc {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}

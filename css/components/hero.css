@@ -1,0 +1,239 @@
+/**
+ * hero.css
+ * 히어로 섹션: 전체 뷰포트 높이 느낌의 중앙 정렬, CTA, 스크롤 인디케이터, 배경 효과
+ */
+
+/* 고정 헤더 아래 남는 영역을 한 화면에 맞춤 */
+#hero.site-section {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(
+    100vh - var(--nav-height) - var(--content-below-nav-gap, 50px)
+  );
+  min-height: calc(
+    100dvh - var(--nav-height) - var(--content-below-nav-gap, 50px)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-block: var(--space-2xl);
+  overflow: clip;
+}
+
+/* 배경: 기본 배경색 + 미묘한 그라디언트 + 아주 약한 노이즈 느낌 */
+#hero.site-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(
+      ellipse 120% 80% at 50% -20%,
+      color-mix(in srgb, var(--color-main) 22%, transparent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 90% 60% at 100% 100%,
+      color-mix(in srgb, var(--color-accent) 12%, transparent) 0%,
+      transparent 45%
+    ),
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg,
+      color-mix(in srgb, var(--color-text) 4%, transparent) 0.02deg 0.08deg,
+      transparent 0.1deg 2.5deg
+    );
+  opacity: 1;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* 영문 이름 (작게) */
+.hero__name-en {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* 한글 이름 (크게) */
+.hero__name {
+  font-family: var(--font-main);
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.hero__tagline {
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+  margin-top: var(--space-xs);
+  min-height: 1.45em;
+}
+
+/* 타이핑 효과: 본문 + 깜빡 커서(완료 후 숨김) */
+.hero__tagline-typed {
+  vertical-align: baseline;
+}
+
+.hero__tagline-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background-color: var(--color-main);
+  animation: hero-caret-blink 0.9s step-end infinite;
+}
+
+.hero__tagline-caret.is-done {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes hero-caret-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero__subtagline {
+  font-size: clamp(0.875rem, 2.2vw, 1rem);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* CTA 버튼 영역 */
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 22rem;
+  margin-top: var(--space-lg);
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.hero__btn:focus-visible {
+  outline: 2px solid var(--color-main);
+  outline-offset: 2px;
+}
+
+.hero__btn:active {
+  transform: scale(0.98);
+}
+
+/* 채워진 기본 버튼 */
+.hero__btn--primary {
+  background-color: var(--color-main);
+  color: #0a0e12;
+  border: 2px solid transparent;
+}
+
+.hero__btn--primary:hover {
+  background-color: color-mix(in srgb, var(--color-main) 88%, white);
+}
+
+/* 테두리만 있는 보조 버튼 */
+.hero__btn--secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 2px solid color-mix(in srgb, var(--color-text-muted) 65%, transparent);
+}
+
+.hero__btn--secondary:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+/* 스크롤 인디케이터: 아래 방향 bounce */
+.hero__scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-2xl);
+  color: var(--color-text-muted);
+  animation: hero-scroll-bounce 1.6s ease-in-out infinite;
+}
+
+.hero__scroll:hover,
+.hero__scroll:focus-visible {
+  color: var(--color-main);
+}
+
+.hero__scroll-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-icon {
+  display: block;
+}
+
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.5rem);
+  }
+}
+
+/* 태블릿 이상: CTA 가로 배치 */
+@media (min-width: 48rem) {
+  .hero__actions {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: none;
+    width: auto;
+    gap: var(--space-md);
+  }
+
+  .hero__btn {
+    min-width: 11rem;
+  }
+}
