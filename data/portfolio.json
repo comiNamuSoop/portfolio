@@ -4,7 +4,7 @@
     "nameEn": "Han JinHo",
     "tagline": "성장하는 백엔드 개발자",
     "subTagline": "Java · Spring Boot · React로 서비스를 설계하고 운영합니다",
-    "ctaPrimary": { "label": "이력서 다운로드", "href": "/file/resume.pdf" },
+    "ctaPrimary": { "label": "이력서 다운로드", "href": "./file/resume.pdf" },
     "ctaSecondary": {
       "label": "GitHub 보기",
       "href": "https://github.com/cominamusoop"
@@ -14,7 +14,7 @@
   "about": {
     "summary": "안녕하세요, 백엔드 신입 개발자를 목표로 하는 한진호입니다.한 직장에서 10년, 그리고 점장으로서 6년. 제가 증명해 온 시간은 '꾸준함'과 '책임감' 그 자체입니다. 수많은 사람과 부딪히며 쌓아온 인간관계 능력과 업무 처리 노하우는 어떤 팀에 합류하더라도 최고의 시너지를 낼 자신이 있습니다. 늦게 시작한 만큼 성장의 밀도를 높이기 위해 AI 툴을 적극적으로 다루며 효율적으로 문제를 해결하는 능력을 키웠습니다. 준비된 소통 능력에 매일 진화하는 개발 역량을 더해, 어제보다 오늘 더 성장하는 백엔드 개발자가 되겠습니다.",
     "keywords": ["백엔드 개발", "클라우드 인프라", "RESTful API", "협업 중심"],
-    "profileImage": "/images/profile.jpeg",
+    "profileImage": "./images/profile.jpeg",
     "availableForWork": true,
     "availableLabel": "현재 취업 준비 중"
   },
@@ -118,11 +118,11 @@
         "Docker Compose 기반 멀티 컨테이너 환경 구성",
         "CloudFront CDN 적용으로 정적 리소스 최적화"
       ],
-      "architectureDiagram": "/images/cyworld_architecture.jfif",
+      "architectureDiagram": "./images/cyworld_architecture.jfif",
       "github": "https://github.com/cominamusoop",
       "liveUrl": "",
       "demoVideo": "",
-      "thumbnail": "/images/cyworld_thumb.jfif",
+      "thumbnail": "./images/cyworld_thumb.jfif",
       "highlights": "기획부터 개발·배포·운영까지 전 과정을 단독으로 수행하며 AWS 인프라와 Docker 기반 서비스 운영 경험을 쌓은 프로젝트"
     },
     {
@@ -141,11 +141,11 @@
         "Soft Delete 기반 데이터 관리",
         "로그인 권한별 전용 페이지 분리 및 접근 제어"
       ],
-      "architectureDiagram": "/images/esg_architecture.png",
+      "architectureDiagram": "./images/esg_architecture.png",
       "github": "https://github.com/cominamusoop",
       "liveUrl": "http://13.125.92.241",
       "demoVideo": "",
-      "thumbnail": "/images/esg_thumb.jpg",
+      "thumbnail": "./images/esg_thumb.jpg",
       "highlights": "정보 탐색부터 비교·선택·공유까지 하나의 흐름으로 연결한 사용자 중심 설계"
     }
   ],
