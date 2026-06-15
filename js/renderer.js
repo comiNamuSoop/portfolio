@@ -1286,10 +1286,6 @@ function renderContact(contact) {
   `
     : "";
 
-  const formColumn = formEnabled
-    ? `<div class="contact__col contact__col--form">${formHtml}</div>`
-    : "";
-
   root.innerHTML = `
     <div class="contact">
       <div class="contact__head">
@@ -1304,7 +1300,7 @@ function renderContact(contact) {
           </div>
           ${responseNoteAside}
         </div>
-        ${formColumn}
+      
       </div>
     </div>
   `.trim();

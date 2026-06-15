@@ -76,6 +76,9 @@
       {
         "name": "Frontend",
         "items": [
+          { "name": "Html", "level": 3, "note": "ㅇㅇ" },
+          { "name": "Css", "level": 3, "note": "Vite 기반, 백엔드 연동 중심" },
+          { "name": "Js", "level": 3, "note": "Vite 기반, 백엔드 연동 중심" },
           { "name": "React", "level": 3, "note": "Vite 기반, 백엔드 연동 중심" }
         ]
       }
@@ -91,12 +94,12 @@
   "projects": [
     {
       "id": "project-01",
-      "title": "EatStatGram",
-      "subtitle": "햄버거비교 및 후기공유 플랫폼",
-      "period": "2024.10 – 2024.12",
+      "title": "MiniHompy",
+      "subtitle": "친구들과 사용하는 비밀 SNS",
+      "period": "2026.06 – 2026.06",
       "teamSize": 1,
       "role": "설계 · 개발 · 배포 전담",
-      "description": "React + Spring Boot + MySQL을 Docker Compose로 컨테이너화하고 AWS EC2에 배포한 게시판 서비스. S3 파일 첨부, JWT 인증, CloudFront CDN 연동까지 구현.",
+      "description": "공개형 SNS의 피로감을 줄이고, 소규모 친구 그룹만을 위한 비공개 SNS 서비스입니다.",
       "techStack": [
         "Java",
         "Spring Boot",
@@ -109,77 +112,41 @@
         "JWT"
       ],
       "features": [
-        "JWT 기반 로그인 · 권한 분리",
-        "S3 파일 업로드 및 다운로드",
-        "Docker Compose 3-컨테이너 구성 (앱/DB/Nginx)",
-        "EC2 배포 + CloudFront CDN 연동",
-        "한글 인코딩(utf8mb4) 이슈 해결 경험"
+        "JWT 기반 로그인 및 권한별 접근 제어",
+        "친구 전용 게시글 · 사진 공유 기능",
+        "NAS 기반 이미지 업로드 및 다운로드",
+        "Docker Compose 기반 멀티 컨테이너 환경 구성",
+        "CloudFront CDN 적용으로 정적 리소스 최적화"
       ],
-      "architectureDiagram": "/images/projects/project01-architecture.png",
-      "github": "https://github.com/dummy-username/board-app",
-      "liveUrl": "http://13.125.92.241",
+      "architectureDiagram": "/images/cyworld_architecture.jfif",
+      "github": "https://github.com/cominamusoop",
+      "liveUrl": "",
       "demoVideo": "",
-      "thumbnail": "/images/projects/project01-thumb.png",
-      "highlights": "단순 CRUD를 넘어 인프라 전체 흐름을 직접 구성하고 트러블슈팅한 프로젝트"
+      "thumbnail": "/images/cyworld_thumb.jfif",
+      "highlights": "기획부터 개발·배포·운영까지 전 과정을 단독으로 수행하며 AWS 인프라와 Docker 기반 서비스 운영 경험을 쌓은 프로젝트"
     },
     {
       "id": "project-02",
-      "title": "쇼핑몰 결제·주문 API",
-      "subtitle": "팀 프로젝트 · PG 연동 및 재고 동기화",
-      "period": "2024.03 – 2024.08",
-      "teamSize": 2,
-      "role": "백엔드 API · 결제 모듈 담당",
-      "description": "Spring Boot 기반 주문·결제·재고 도메인 API를 설계하고, 외부 PG 웹훅 검증 및 멱등키 처리로 결제 안정성을 확보했습니다.",
+      "title": "EatStatGram",
+      "subtitle": "메뉴 선택의 결정 장애를 해결해 주는 메뉴 비교 및 후기 공유 플랫폼",
+      "period": "2026.05 – 2026.05",
+      "teamSize": 4,
+      "role": "팀리더 · 기획 및 설계 · 프로젝트 관리 · 데이터 수집 · 구현",
+      "description": "메뉴 선택 과정에서 발생하는 정보 탐색 비용과 결정 피로를 줄이기 위해 개발한 메뉴 비교 및 후기 공유 플랫폼입니다.",
       "techStack": ["Java", "Spring Boot", "MySQL", "Redis", "REST API"],
       "features": [
-        "PG 웹훅 서명 검증",
-        "주문 상태 머신",
-        "재고 차감 동시성 제어"
+        "브랜드 · 메뉴 검색 및 영양정보 비교",
+        "선택 기반 후기 작성 시스템",
+        "Zustand를 활용한 비교함·게시판 상태 유지",
+        "Soft Delete 기반 데이터 관리",
+        "로그인 권한별 전용 페이지 분리 및 접근 제어"
       ],
-      "architectureDiagram": "",
-      "github": "https://github.com/dummy-username/shop-api",
-      "liveUrl": "",
+      "architectureDiagram": "/images/esg_architecture.png",
+      "github": "https://github.com/cominamusoop",
+      "liveUrl": "http://13.125.92.241",
       "demoVideo": "",
-      "thumbnail": "/images/projects/project02-thumb.png",
-      "highlights": "도메인 경계를 나누고 트랜잭션 일관성을 지키는 데 집중한 백엔드 중심 프로젝트"
-    },
-    {
-      "id": "project-03",
-      "title": "인증·권한 공통 모듈",
-      "subtitle": "개인 · JWT + RBAC 템플릿",
-      "period": "2023.11 – 2024.02",
-      "teamSize": 1,
-      "role": "설계 · 구현",
-      "description": "여러 서비스에서 재사용할 수 있도록 JWT 발급·갱신, 역할 기반 접근 제어를 Spring Security 설정으로 패키징했습니다.",
-      "techStack": ["Java", "Spring Security", "JWT", "JUnit"],
-      "features": [
-        "Refresh 토큰 로테이션",
-        "역할·권한 매핑 테이블",
-        "통합 테스트"
-      ],
-      "architectureDiagram": "",
-      "github": "https://github.com/dummy-username/auth-kit",
-      "liveUrl": "",
-      "demoVideo": "",
-      "thumbnail": "",
-      "highlights": "보일러플레이트를 줄이고 팀 온보딩 시간을 줄이는 것이 목표였습니다."
-    },
-    {
-      "id": "project-04",
-      "title": "실시간 채팅 PoC",
-      "subtitle": "3인 팀 · WebSocket + STOMP",
-      "period": "2024.01 – 2024.03",
-      "teamSize": 3,
-      "role": "메시지 브로커 · 세션 관리",
-      "description": "STOMP 기반 구독/발행과 Redis Pub/Sub을 활용해 다중 인스턴스에서도 일관된 실시간 메시지 전달을 검증했습니다.",
-      "techStack": ["Java", "Spring Boot", "WebSocket", "STOMP", "Redis"],
-      "features": ["채널별 구독", "연결 세션 추적", "간단한 부하 테스트"],
-      "architectureDiagram": "/images/projects/project04-architecture.png",
-      "github": "https://github.com/dummy-username/chat-poc",
-      "liveUrl": "",
-      "demoVideo": "",
-      "thumbnail": "/images/projects/project04-thumb.png",
-      "highlights": "실시간성과 운영 복잡도 사이의 트레이드오프를 기록한 PoC"
+      "thumbnail": "/images/esg_thumb.jpg",
+      "highlights": "정보 탐색부터 비교·선택·공유까지 하나의 흐름으로 연결한 사용자 중심 설계"
     }
   ],
   "experience": {
